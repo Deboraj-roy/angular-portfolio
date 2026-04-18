@@ -1,28 +1,51 @@
-<div class="site-wrapper" *ngIf="cv$ | async as cv">
-  <!-- Header: Name, Title, Summary, Contact -->
-  <app-header [cv]="cv"></app-header>
+<ng-container *ngIf="cv$ | async as cv; else loadingState">
+  <div class="portfolio-shell">
+    <app-navbar></app-navbar>
 
-  <!-- Skills Grid -->
-  <app-skills [skills]="cv.skills"></app-skills>
+    <main id="main-content" class="site-wrapper">
+      <section class="anchor-target" id="overview">
+        <app-header [cv]="cv"></app-header>
+      </section>
 
-  <!-- Professional Experience -->
-  <app-experience [experiences]="cv.experience"></app-experience>
+      <section class="anchor-target" id="skills">
+        <app-skills [skills]="cv.skills"></app-skills>
+      </section>
 
-  <!-- Enterprise Projects -->
-  <app-enterprise-projects [projects]="cv.enterpriseProjects"></app-enterprise-projects>
+      <section class="anchor-target" id="experience">
+        <app-experience [experiences]="cv.experience"></app-experience>
+      </section>
 
-  <!-- Open Source Projects -->
-  <app-projects [projects]="cv.projects"></app-projects>
+      <section class="anchor-target" id="enterprise-projects">
+        <app-enterprise-projects [projects]="cv.enterpriseProjects"></app-enterprise-projects>
+      </section>
 
-  <!-- Education -->
-  <app-education [education]="cv.education"></app-education>
+      <section class="anchor-target" id="projects">
+        <app-projects [projects]="cv.projects"></app-projects>
+      </section>
 
-  <!-- Certifications -->
-  <app-certifications [certifications]="cv.certifications"></app-certifications>
+      <section class="anchor-target" id="education">
+        <app-education [education]="cv.education"></app-education>
+      </section>
 
-  <!-- Additional: Languages, Interests -->
-  <app-additional [additional]="cv.additional"></app-additional>
-</div>
+      <section class="anchor-target" id="certifications">
+        <app-certifications [certifications]="cv.certifications"></app-certifications>
+      </section>
 
-<!-- Floating Action Buttons -->
-<app-fab-group></app-fab-group>
+      <section class="anchor-target" id="additional">
+        <app-additional [additional]="cv.additional"></app-additional>
+      </section>
+    </main>
+
+    <app-footer [name]="cv.name"></app-footer>
+  </div>
+
+  <app-fab-group></app-fab-group>
+</ng-container>
+
+<ng-template #loadingState>
+  <div class="loading-state" aria-live="polite">
+    <div class="loading-card">
+      <p>Loading portfolio...</p>
+    </div>
+  </div>
+</ng-template>

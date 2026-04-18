@@ -1,1 +1,14 @@
-<p>navbar works!</p>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="top-nav">
+	<a class="brand" href="#main-content" aria-label="Go to portfolio top">Deboraj Roy</a>
+
+	<nav class="nav-links" aria-label="Primary">
+		<a
+			*ngFor="let item of navItems"
+			[href]="item.href"
+		>
+			{{ item.label }}
+		</a>
+	</nav>
+</header>

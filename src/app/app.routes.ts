@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   {
@@ -9,7 +8,13 @@ export const routes: Routes = [
   },
   {
     path: 'old_html',
-    component: HomeComponent
+    loadComponent: () =>
+      import('./pages/home/home.component').then((m) => m.HomeComponent)
+  },
+  {
+    path: 'cv',
+    loadComponent: () =>
+      import('./pages/cv/cv.component').then((m) => m.CvComponent)
   },
   {
     path: '**',

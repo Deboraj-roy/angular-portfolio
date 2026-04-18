@@ -1,108 +1,15 @@
-.cv-section {
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
-  border-radius: var(--radius-lg);
-  padding: 2rem 2.25rem;
-  margin-bottom: 1.25rem;
-  box-shadow: var(--shadow-card);
-  animation: riseIn 0.5s ease both;
-
-  h2.section-label {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--c-accent);
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-
-    &::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--c-border);
-    }
-  }
+.entry .org a {
+  border-bottom: 1px dashed color-mix(in srgb, var(--c-accent-2) 50%, transparent);
 }
 
-.entry {
-  margin-bottom: 1.75rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+.entry .org a:hover {
+  text-decoration: none;
+  border-bottom-color: var(--c-accent-2);
 }
 
-.entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.6rem;
-}
-
-.entry h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--c-ink);
-}
-
-.entry .org {
-  font-size: 0.9rem;
-  color: var(--c-accent-2);
-  font-weight: 500;
-  margin-top: 0.15rem;
-
-  a {
-    &:hover {
-      text-decoration: underline;
-    }
-
-    & + a::before {
-      content: ' · ';
-      color: var(--c-accent-2);
-    }
-  }
-}
-
-.entry-body {
-  font-size: 0.9rem;
-  color: var(--c-ink-2);
-
-  li {
-    padding-left: 1.1rem;
-    position: relative;
-    margin-bottom: 0.45rem;
-    line-height: 1.65;
-
-    &::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--c-accent);
-      font-size: 0.75rem;
-      top: 0.22rem;
-    }
-  }
-}
-
-.divider {
-  border: none;
-  border-top: 1px solid var(--c-border);
-  margin: 1.5rem 0;
-}
-
-@media (max-width: 600px) {
-  .cv-section {
-    padding: 1.5rem 1.25rem;
-  }
-
+@media (max-width: 900px) {
   .entry-header {
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.25rem;
   }
 }

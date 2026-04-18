@@ -10,6 +10,8 @@ import { EducationComponent } from '../../shared/components/education/education.
 import { CertificationsComponent } from '../../shared/components/certifications/certifications.component';
 import { AdditionalComponent } from '../../shared/components/additional/additional.component';
 import { FABGroupComponent } from '../../shared/components/fab-group/fab-group.component';
+import { NavbarComponent } from '../../shared/navbar/navbar.component';
+import { FooterComponent } from '../../shared/footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +26,9 @@ import { FABGroupComponent } from '../../shared/components/fab-group/fab-group.c
     EducationComponent,
     CertificationsComponent,
     AdditionalComponent,
-    FABGroupComponent
+    FABGroupComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

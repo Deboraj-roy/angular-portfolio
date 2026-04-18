@@ -1,0 +1,50 @@
+.cv-page {
+	max-width: 900px;
+	margin: 1.5rem auto;
+	padding: 1.5rem;
+	background: var(--c-surface);
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-lg);
+	color: var(--c-ink);
+
+	h1,
+	h2,
+	h3 {
+		font-family: var(--font-display);
+	}
+
+	h1 {
+		font-size: 2rem;
+		margin-bottom: 0.3rem;
+	}
+
+	h2 {
+		margin: 1.25rem 0 0.5rem;
+		font-size: 1.1rem;
+	}
+
+	h3 {
+		margin-top: 0.8rem;
+		font-size: 1rem;
+	}
+
+	ul {
+		list-style: disc;
+		padding-left: 1.2rem;
+	}
+
+	li {
+		margin-bottom: 0.35rem;
+	}
+
+	p {
+		color: var(--c-ink-2);
+	}
+}
+
+.cv-meta p {
+	font-family: var(--font-mono);
+	text-transform: uppercase;
+	letter-spacing: 0.09em;
+	font-size: 0.78rem;
+}

@@ -1,0 +1,60 @@
+:host {
+	display: block;
+}
+
+.portfolio-shell {
+	position: relative;
+	min-height: 100vh;
+}
+
+.portfolio-shell::before,
+.portfolio-shell::after {
+	content: '';
+	position: fixed;
+	pointer-events: none;
+	z-index: -1;
+	filter: blur(44px);
+}
+
+.portfolio-shell::before {
+	width: 280px;
+	height: 280px;
+	top: 8%;
+	left: -80px;
+	background: radial-gradient(circle at center, color-mix(in srgb, var(--c-accent-2) 20%, transparent), transparent 70%);
+}
+
+.portfolio-shell::after {
+	width: 360px;
+	height: 360px;
+	right: -110px;
+	bottom: 10%;
+	background: radial-gradient(circle at center, color-mix(in srgb, var(--c-accent) 20%, transparent), transparent 72%);
+}
+
+.anchor-target {
+	scroll-margin-top: 6.5rem;
+}
+
+.loading-state {
+	min-height: 70vh;
+	display: grid;
+	place-items: center;
+	padding: 2rem;
+}
+
+.loading-card {
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-lg);
+	background: color-mix(in srgb, var(--c-surface) 86%, transparent);
+	box-shadow: var(--shadow-soft);
+	padding: 1.2rem 1.6rem;
+
+	p {
+		font-family: var(--font-mono);
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		font-size: 0.78rem;
+		color: var(--c-ink-2);
+	}
+}

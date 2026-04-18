@@ -1,0 +1,35 @@
+.site-footer {
+	max-width: 1100px;
+	margin: 1rem auto 2rem;
+	width: calc(100% - 2rem);
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-lg);
+	background: color-mix(in srgb, var(--c-surface) 86%, transparent);
+	box-shadow: var(--shadow-soft);
+	padding: 1rem 1.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	flex-wrap: wrap;
+
+	p {
+		font-size: 0.84rem;
+		color: var(--c-ink-2);
+		max-width: 64ch;
+	}
+}
+
+.footer-links {
+	display: flex;
+	gap: 0.9rem;
+	flex-wrap: wrap;
+
+	a {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		text-decoration: none;
+	}
+}
