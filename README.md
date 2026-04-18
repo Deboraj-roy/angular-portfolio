@@ -1,27 +1,110 @@
-# AngularPortfolio
+# Angular Portfolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Personal portfolio and CV web app built with Angular 17 (standalone components), SCSS, and SSR/prerender support.
 
-## Development server
+## Tech Stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 17
+- TypeScript
+- SCSS
+- Karma + Jasmine (unit tests)
+- GitHub Actions (CI/CD)
 
-## Code scaffolding
+## Project Structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- src/app/pages/home: Portfolio landing sections
+- src/app/pages/cv: ATS-friendly CV page
+- src/app/shared/components: Reusable UI sections
+- src/app/core/services: Theme, print, and CV data services
+- src/assets/data/cv.json: Portfolio and CV data source
 
-## Build
+## Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Node.js 20.x recommended
+- npm 10.x recommended
 
-## Running unit tests
+## Install Dependencies
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm install
+```
 
-## Running end-to-end tests
+## Run Locally
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm start
+```
 
-## Further help
+App runs at http://localhost:4200/.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Build (Production)
+
+```bash
+npm run build
+```
+
+Build output is generated in dist/angular-portfolio/browser.
+
+## Run Unit Tests
+
+```bash
+npm test
+```
+
+CI test command:
+
+```bash
+npm test -- --watch=false --browsers=ChromeHeadless
+```
+
+## CI/CD Workflow
+
+Workflow file: .github/workflows/angular-build-deploy.yml
+
+Current pipeline:
+
+1. Trigger on push to main
+2. Install dependencies with npm ci
+3. Run unit tests in headless mode
+4. Build production bundle with base href /angular-portfolio/
+5. Deploy dist/angular-portfolio/browser to prod branch
+
+## Troubleshooting
+
+- If local tests fail with "Cannot find the binary ... chrome.exe", install Google Chrome or set CHROME_BIN to a valid Chrome/Chromium binary path.
+- If deployment does not update Pages, verify repository Pages settings and target branch (prod).
+
+## AI Agent Prompt (Build Instructions)
+
+Use this prompt with any coding AI agent when you want it to handle build validation and deployment workflow updates safely.
+
+```text
+You are working on an Angular 17 portfolio project.
+
+Goals:
+1) Verify the app builds in production mode.
+2) Verify unit tests pass in CI mode.
+3) Update the GitHub Actions workflow only if needed.
+4) Keep changes minimal and do not modify unrelated files.
+
+Repository details:
+- Build output path: dist/angular-portfolio/browser
+- Production build command: npx ng build --configuration=production --base-href=/angular-portfolio/
+- CI test command: npm test -- --watch=false --browsers=ChromeHeadless
+- Workflow file: .github/workflows/angular-build-deploy.yml
+- Deploy branch: prod
+
+Required steps:
+1) Run npm ci.
+2) Run CI tests.
+3) Run production build.
+4) If tests fail due to missing Angular providers in specs, add only the required testing providers.
+5) If workflow paths are wrong, fix only those paths.
+6) Summarize exactly what changed and why.
+
+Constraints:
+- Do not introduce broad refactors.
+- Preserve existing project structure.
+- Prefer secure defaults in GitHub Actions.
+- Do not remove test execution from CI.
+```
