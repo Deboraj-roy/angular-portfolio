@@ -7,9 +7,7 @@
   <div class="two-col">
     <div>
       <h3 class="additional-label">Languages</h3>
-      <p class="additional-value">
-        {{ additional.languages.replace(/\n/g, ' ') }}
-      </p>
+      <p class="additional-value" [innerHTML]="additional.languages | langPipe"></p>
     </div>
 
     <div>

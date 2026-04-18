@@ -1,13 +1,15 @@
-@use '../../styles/variables' as *;
-
 .cv-header {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 2rem;
-  align-items: center;
-  padding: 2.5rem;
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
+display: grid;
+grid-template-columns: auto 1fr;
+gap: 2rem;
+align-items: center;
+padding: 2.5rem;
+background: var(--c-surface);
+border: 1px solid var(--c-border);
+border-radius: var(--radius-lg);
+box-shadow: var(--shadow-card);
+margin-bottom: 1.75rem;
+animation: riseIn 0.5s ease both;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   margin-bottom: 1.75rem;

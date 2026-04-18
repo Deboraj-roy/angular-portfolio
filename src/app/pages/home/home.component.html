@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div class="site-wrapper" *ngIf="cv$ | async as cv">
+  <!-- Header: Name, Title, Summary, Contact -->
+  <app-header [cv]="cv"></app-header>
+
+  <!-- Skills Grid -->
+  <app-skills [skills]="cv.skills"></app-skills>
+
+  <!-- Professional Experience -->
+  <app-experience [experiences]="cv.experience"></app-experience>
+
+  <!-- Enterprise Projects -->
+  <app-enterprise-projects [projects]="cv.enterpriseProjects"></app-enterprise-projects>
+
+  <!-- Open Source Projects -->
+  <app-projects [projects]="cv.projects"></app-projects>
+
+  <!-- Education -->
+  <app-education [education]="cv.education"></app-education>
+
+  <!-- Certifications -->
+  <app-certifications [certifications]="cv.certifications"></app-certifications>
+
+  <!-- Additional: Languages, Interests -->
+  <app-additional [additional]="cv.additional"></app-additional>
+</div>
+
+<!-- Floating Action Buttons -->
+<app-fab-group></app-fab-group>

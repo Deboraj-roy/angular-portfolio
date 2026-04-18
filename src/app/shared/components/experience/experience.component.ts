@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Experience } from '../../models/cv.model';
+import { Experience } from '../../../models/cv.model';
 import { TagRowComponent } from '../tag-row/tag-row.component';
 
 @Component({

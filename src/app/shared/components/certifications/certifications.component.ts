@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Certification } from '../../models/cv.model';
+import { Certification } from '../../../models/cv.model';
 
 @Component({
   selector: 'app-certifications',

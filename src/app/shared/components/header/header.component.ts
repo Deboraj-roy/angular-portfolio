@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CV } from '../../models/cv.model';
+import { CV } from '../../../models/cv.model';
 
 @Component({
   selector: 'app-header',
@@ -30,5 +30,10 @@ export class HeaderComponent {
   isBrandIcon(label: string): boolean {
     const icon = this.ICONS[label] || 'fa-link';
     return icon.startsWith('fab ');
+  }
+
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect fill='%231d4f8a' width='110' height='110'/%3E%3Ctext x='50%25' y='54%25' font-size='44' fill='white' text-anchor='middle' dominant-baseline='middle' font-family='serif'%3EDR%3C/text%3E%3C/svg%3E";
   }
 }

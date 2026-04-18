@@ -10,15 +10,16 @@
         <div>
           <h3>{{ proj.title }}</h3>
           <p class="org">
-            <a 
-              *ngFor="let link of proj.links; let li = last"
-              [href]="link.href"
-              target="_blank"
-              rel="noopener"
-            >
-              {{ link.label }}
-            </a>
-            <ng-container *ngIf="!li"> · </ng-container>
+            <ng-container *ngFor="let link of proj.links; let lastLink = last; let i = index">
+              <a 
+                [href]="link.href"
+                target="_blank"
+                rel="noopener"
+              >
+                {{ link.label }}
+              </a>
+              <ng-container *ngIf="!lastLink"> · </ng-container>
+            </ng-container>
           </p>
         </div>
       </div>
