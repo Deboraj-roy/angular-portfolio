@@ -1,0 +1,23 @@
+<section class="cv-section" aria-labelledby="add-heading">
+  <h2 class="section-label" id="add-heading">
+    <i class="fas fa-user-circle" aria-hidden="true"></i>
+    Additional
+  </h2>
+
+  <div class="two-col">
+    <div>
+      <h3 class="additional-label">Languages</h3>
+      <p class="additional-value">
+        {{ additional.languages.replace(/\n/g, ' ') }}
+      </p>
+    </div>
+
+    <div>
+      <h3 class="additional-label">Interests & Achievements</h3>
+      <p class="additional-value">
+        {{ additional.interests }}<br />
+        <strong>{{ additional.achievement }}</strong>
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+<section class="cv-section" aria-labelledby="skills-heading">
+  <h2 class="section-label" id="skills-heading">
+    <i class="fas fa-code" aria-hidden="true"></i>
+    Technical Skills
+  </h2>
+
+  <div class="skills-grid">
+    <div *ngFor="let skill of skills" class="skill-group">
+      <h3>{{ skill.label }}</h3>
+      <p>{{ skill.value }}</p>
+    </div>
+  </div>
+</section>

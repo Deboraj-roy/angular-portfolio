@@ -1,0 +1,35 @@
+<section class="cv-section" aria-labelledby="proj-heading">
+  <h2 class="section-label" id="proj-heading">
+    <i class="fas fa-layer-group" aria-hidden="true"></i>
+    Open Source & Personal Projects
+  </h2>
+
+  <ng-container *ngFor="let proj of projects; let last = last">
+    <article class="entry">
+      <div class="entry-header">
+        <div>
+          <h3>{{ proj.title }}</h3>
+          <p class="org">
+            <a 
+              *ngFor="let link of proj.links; let li = last"
+              [href]="link.href"
+              target="_blank"
+              rel="noopener"
+            >
+              {{ link.label }}
+            </a>
+            <ng-container *ngIf="!li"> · </ng-container>
+          </p>
+        </div>
+      </div>
+
+      <ul class="entry-body">
+        <li *ngFor="let bullet of proj.bullets">{{ bullet }}</li>
+      </ul>
+
+      <app-tag-row [tags]="proj.tags"></app-tag-row>
+    </article>
+
+    <hr *ngIf="!last" class="divider" />
+  </ng-container>
+</section>

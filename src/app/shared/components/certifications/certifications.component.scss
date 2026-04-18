@@ -1,0 +1,78 @@
+.cv-section {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-card);
+  animation: riseIn 0.5s ease both;
+
+  h2.section-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--c-border);
+    }
+  }
+}
+
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.cert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .cert-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--c-ink);
+
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .cert-issuer {
+    font-size: 0.82rem;
+    color: var(--c-ink-3);
+  }
+
+  .cert-year {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--c-ink-3);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .cv-section {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .cert-item {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}

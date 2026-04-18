@@ -1,0 +1,29 @@
+<div class="fab-group" role="group" aria-label="Page controls">
+  <button 
+    class="fab"
+    id="theme-btn"
+    title="Toggle dark mode"
+    aria-label="Toggle dark mode"
+    (click)="toggleTheme()"
+  >
+    <i 
+      *ngIf="darkMode$ | async" 
+      class="fas fa-sun" 
+      aria-hidden="true"
+    ></i>
+    <i 
+      *ngIf="!(darkMode$ | async)" 
+      class="fas fa-moon" 
+      aria-hidden="true"
+    ></i>
+  </button>
+
+  <button 
+    class="fab fab--print"
+    title="Download / Print CV"
+    aria-label="Print professional CV"
+    (click)="generatePrintCV()"
+  >
+    <i class="fas fa-print" aria-hidden="true"></i>
+  </button>
+</div>

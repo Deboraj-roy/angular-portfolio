@@ -1,0 +1,18 @@
+<section class="cv-section" aria-labelledby="edu-heading">
+  <h2 class="section-label" id="edu-heading">
+    <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+    Education
+  </h2>
+
+  <ng-container *ngFor="let edu of education; let last = last">
+    <div class="edu-entry">
+      <h3>{{ edu.degree }}</h3>
+      <p class="school">{{ edu.school }}</p>
+      <p class="edu-meta">
+        {{ edu.dates }}<ng-container *ngIf="edu.detail"> · {{ edu.detail }}</ng-container>
+      </p>
+    </div>
+
+    <hr *ngIf="!last" class="divider" />
+  </ng-container>
+</section>

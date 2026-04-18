@@ -1,0 +1,28 @@
+<section class="cv-section" aria-labelledby="exp-heading">
+  <h2 class="section-label" id="exp-heading">
+    <i class="fas fa-briefcase" aria-hidden="true"></i>
+    Professional Experience
+  </h2>
+
+  <ng-container *ngFor="let exp of experiences; let last = last">
+    <article class="entry">
+      <div class="entry-header">
+        <div>
+          <h3>{{ exp.title }}</h3>
+          <p class="org">{{ exp.org }} · {{ exp.location }}</p>
+        </div>
+        <time class="dates">{{ exp.dates }}</time>
+      </div>
+
+      <p *ngIf="exp.stack" class="entry-meta">{{ exp.stack }}</p>
+
+      <ul class="entry-body">
+        <li *ngFor="let bullet of exp.bullets">{{ bullet }}</li>
+      </ul>
+
+      <app-tag-row [tags]="exp.tags"></app-tag-row>
+    </article>
+
+    <hr *ngIf="!last" class="divider" />
+  </ng-container>
+</section>

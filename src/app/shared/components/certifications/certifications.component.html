@@ -1,0 +1,19 @@
+<section class="cv-section" aria-labelledby="cert-heading">
+  <h2 class="section-label" id="cert-heading">
+    <i class="fas fa-certificate" aria-hidden="true"></i>
+    Certifications
+  </h2>
+
+  <ul class="cert-list">
+    <li *ngFor="let cert of certifications" class="cert-item">
+      <div>
+        <p class="cert-name">
+          <a *ngIf="cert.href" [href]="cert.href" target="_blank" rel="noopener">{{ cert.name }}</a>
+          <ng-container *ngIf="!cert.href">{{ cert.name }}</ng-container>
+        </p>
+        <p class="cert-issuer">{{ cert.issuer }}</p>
+      </div>
+      <time class="cert-year">{{ cert.dates }}</time>
+    </li>
+  </ul>
+</section>

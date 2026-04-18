@@ -1,0 +1,30 @@
+<section class="cv-section" aria-labelledby="ent-heading">
+  <h2 class="section-label" id="ent-heading">
+    <i class="fas fa-building" aria-hidden="true"></i>
+    Selected Enterprise Projects
+  </h2>
+
+  <p class="entry-meta">
+    Designed, developed, and delivered as part of professional employment at PlayOn 24. Source code is proprietary and under client NDA.
+  </p>
+
+  <ng-container *ngFor="let proj of projects; let last = last">
+    <article class="entry">
+      <div class="entry-header">
+        <div>
+          <h3>{{ proj.title }}</h3>
+          <p class="org">{{ proj.context }}</p>
+        </div>
+        <span class="ent-badge">Client Production</span>
+      </div>
+
+      <ul class="entry-body">
+        <li *ngFor="let bullet of proj.bullets">{{ bullet }}</li>
+      </ul>
+
+      <app-tag-row [tags]="proj.tags"></app-tag-row>
+    </article>
+
+    <hr *ngIf="!last" class="divider" />
+  </ng-container>
+</section>
