@@ -4,10 +4,10 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'old_html'
+    redirectTo: ''
   },
   {
-    path: 'old_html',
+    path: '',
     loadComponent: () =>
       import('./pages/home/home.component').then((m) => m.HomeComponent)
   },
@@ -18,6 +18,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'old_html'
+    redirectTo: ''
   }
 ];
