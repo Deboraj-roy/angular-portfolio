@@ -4,33 +4,54 @@
     Open Source & Personal Projects
   </h2>
 
-  <ng-container *ngFor="let proj of projects; let last = last">
-    <article class="entry">
-      <div class="entry-header">
-        <div>
-          <h3>{{ proj.title }}</h3>
-          <p class="org">
-            <ng-container *ngFor="let link of proj.links; let lastLink = last; let i = index">
-              <a 
-                [href]="link.href"
-                target="_blank"
-                rel="noopener"
-              >
-                {{ link.label }}
-              </a>
-              <ng-container *ngIf="!lastLink"> · </ng-container>
-            </ng-container>
-          </p>
+  <div class="project-toolbar" aria-label="Project filters">
+    <p class="toolbar-label">Filter by engineering focus</p>
+    <div class="filter-row">
+      <button
+        *ngFor="let filter of filterOptions"
+        type="button"
+        class="filter-chip"
+        [class.filter-chip--active]="activeFilter === filter.key"
+        (click)="setFilter(filter.key)"
+      >
+        {{ filter.label }}
+      </button>
+    </div>
+  </div>
+
+  <ng-container *ngIf="hasFilteredProjects; else emptyState">
+    <ng-container *ngFor="let proj of filteredProjects; let last = last; trackBy: trackByTitle">
+      <article class="entry">
+        <div class="entry-header">
+          <div>
+            <h3>{{ proj.title }}</h3>
+            <p class="org">
+              <ng-container *ngFor="let link of proj.links; let lastLink = last">
+                <a
+                  [href]="link.href"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {{ link.label }}
+                </a>
+                <ng-container *ngIf="!lastLink"> · </ng-container>
+              </ng-container>
+            </p>
+          </div>
         </div>
-      </div>
 
-      <ul class="entry-body">
-        <li *ngFor="let bullet of proj.bullets">{{ bullet }}</li>
-      </ul>
+        <ul class="entry-body">
+          <li *ngFor="let bullet of proj.bullets">{{ bullet }}</li>
+        </ul>
 
-      <app-tag-row [tags]="proj.tags"></app-tag-row>
-    </article>
+        <app-tag-row [tags]="proj.tags"></app-tag-row>
+      </article>
 
-    <hr *ngIf="!last" class="divider" />
+      <hr *ngIf="!last" class="divider" />
+    </ng-container>
   </ng-container>
+
+  <ng-template #emptyState>
+    <p class="empty-state">No projects match this filter yet. Try another engineering focus.</p>
+  </ng-template>
 </section>

@@ -1,19 +1,43 @@
 <header class="cv-header">
-  <img 
-    [src]="'assets/avater.jfif'" 
-    alt="Deboraj Roy"
-    class="avatar"
-    loading="lazy"
-    (error)="onImageError($event)"
-  />
+  <div class="portrait-wrap">
+    <img
+      [src]="'assets/avater.jfif'"
+      alt="Deboraj Roy"
+      class="avatar"
+      loading="lazy"
+      (error)="onImageError($event)"
+    />
+    <span class="status-dot" aria-hidden="true"></span>
+  </div>
 
   <div class="header-text">
+    <p class="kicker">
+      <span class="kicker-main">.NET Backend Engineer</span>
+      <span class="kicker-sub">Open to senior backend opportunities</span>
+    </p>
+
     <h1>{{ cv.name }}</h1>
     <p class="headline">{{ cv.title }}</p>
     <p class="summary">{{ cv.summary }}</p>
 
+    <div class="metric-row" aria-label="Career highlights">
+      <div class="metric" *ngFor="let metric of heroMetrics">
+        <p class="metric-value">{{ metric.value }}</p>
+        <p class="metric-label">{{ metric.label }}</p>
+      </div>
+    </div>
+
+    <ul class="focus-row" aria-label="Backend specialization">
+      <li *ngFor="let focus of focusAreas">{{ focus }}</li>
+    </ul>
+
+    <div class="hero-actions">
+      <a class="hero-btn hero-btn--primary" href="#projects">View Projects</a>
+      <a class="hero-btn" href="/cv">ATS CV</a>
+    </div>
+
     <nav class="contact-row" aria-label="Contact information">
-      <a 
+      <a
         *ngFor="let contact of cv.contact"
         [href]="contact.href"
         [target]="contact.href.startsWith('mailto:') || contact.href.startsWith('tel:') ? null : '_blank'"

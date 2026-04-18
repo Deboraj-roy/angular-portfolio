@@ -13,6 +13,19 @@ import { CV } from '../../../models/cv.model';
 export class HeaderComponent {
   @Input() cv!: CV;
 
+  readonly focusAreas: string[] = [
+    'ASP.NET Core APIs',
+    'Clean Architecture',
+    'SQL Server Performance',
+    'Enterprise ERP Systems'
+  ];
+
+  readonly heroMetrics: Array<{ label: string; value: string }> = [
+    { label: 'Experience', value: '2+ Years' },
+    { label: 'Client Deployments', value: '10+' },
+    { label: 'Core Stack', value: '.NET 8 + Angular' }
+  ];
+
   // Icon map for contact labels
   readonly ICONS: Record<string, string> = {
     'deborajroy.in@gmail.com': 'fa-envelope',

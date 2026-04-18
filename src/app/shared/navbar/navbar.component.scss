@@ -27,19 +27,33 @@
 	justify-content: space-between;
 	gap: 1rem;
 	padding: 0.8rem 1rem;
-	border-radius: 999px;
-	border: 1px solid color-mix(in srgb, var(--c-border) 85%, transparent);
-	background: color-mix(in srgb, var(--c-surface) 80%, transparent);
+	border-radius: 16px;
+	border: 1px solid color-mix(in srgb, var(--c-border) 80%, transparent);
+	background: color-mix(in srgb, var(--c-surface) 84%, transparent);
 	backdrop-filter: blur(12px);
 	box-shadow: var(--shadow-soft);
 }
 
 .brand {
-	font-family: var(--font-display);
-	font-size: 1.1rem;
 	color: var(--c-ink);
 	text-decoration: none;
-	letter-spacing: 0.02em;
+	display: grid;
+	line-height: 1.05;
+	gap: 0.1rem;
+}
+
+.brand-main {
+	font-family: var(--font-display);
+	font-size: 1.15rem;
+	letter-spacing: 0.01em;
+}
+
+.brand-sub {
+	font-family: var(--font-mono);
+	font-size: 0.67rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--c-ink-3);
 }
 
 .nav-links {
@@ -71,7 +85,7 @@
 
 @media (max-width: 900px) {
 	.top-nav {
-		border-radius: var(--radius-md);
+		border-radius: var(--radius-lg);
 		align-items: flex-start;
 		flex-direction: column;
 	}

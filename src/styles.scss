@@ -1,42 +1,42 @@
 :root {
-  --c-bg: #f2efe8;
-  --c-surface: #fffdf9;
-  --c-surface-2: #ece7de;
-  --c-border: #d8d0c3;
-  --c-ink: #1b1714;
-  --c-ink-2: #4f473f;
-  --c-ink-3: #84796e;
-  --c-accent: #b64a20;
-  --c-accent-2: #1f5f8d;
-  --c-tag-bg: #1f5f8d14;
-  --c-tag-text: #1f5f8d;
+  --c-bg: #f3f7fb;
+  --c-surface: #ffffff;
+  --c-surface-2: #edf2f8;
+  --c-border: #d2dde9;
+  --c-ink: #0f1d2d;
+  --c-ink-2: #33475d;
+  --c-ink-3: #617487;
+  --c-accent: #f57f20;
+  --c-accent-2: #1466b8;
+  --c-tag-bg: #1466b814;
+  --c-tag-text: #1466b8;
 
   --font-display: 'DM Serif Display', Georgia, serif;
   --font-body: 'Outfit', system-ui, sans-serif;
   --font-mono: 'DM Mono', 'Courier New', monospace;
 
   --radius-sm: 7px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
 
-  --shadow-soft: 0 1px 4px rgba(10, 10, 10, 0.06), 0 10px 24px rgba(10, 10, 10, 0.08);
-  --shadow-hover: 0 10px 28px rgba(10, 10, 10, 0.14);
+  --shadow-soft: 0 2px 6px rgba(14, 28, 44, 0.08), 0 14px 30px rgba(14, 28, 44, 0.1);
+  --shadow-hover: 0 14px 32px rgba(14, 28, 44, 0.16);
 
   --transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme='dark'] {
-  --c-bg: #0f0d08;
-  --c-surface: #19150f;
-  --c-surface-2: #241f15;
-  --c-border: #322b1f;
-  --c-ink: #efe8df;
-  --c-ink-2: #cbc1b3;
-  --c-ink-3: #918576;
-  --c-accent: #e26a3a;
-  --c-accent-2: #7db7e7;
-  --c-tag-bg: #7db7e71a;
-  --c-tag-text: #7db7e7;
+  --c-bg: #08131f;
+  --c-surface: #0f1f31;
+  --c-surface-2: #163149;
+  --c-border: #26435f;
+  --c-ink: #eaf2fb;
+  --c-ink-2: #c3d5e8;
+  --c-ink-3: #8ca6c0;
+  --c-accent: #ff9c4a;
+  --c-accent-2: #78c3ff;
+  --c-tag-bg: #78c3ff20;
+  --c-tag-text: #9ed3ff;
 }
 
 *,
@@ -58,8 +58,8 @@ body {
   color: var(--c-ink);
   line-height: 1.65;
   background:
-    radial-gradient(1200px 500px at -15% -20%, color-mix(in srgb, var(--c-accent-2) 14%, transparent), transparent 60%),
-    radial-gradient(900px 450px at 110% 120%, color-mix(in srgb, var(--c-accent) 12%, transparent), transparent 62%),
+    radial-gradient(1200px 500px at -15% -20%, color-mix(in srgb, var(--c-accent-2) 18%, transparent), transparent 60%),
+    radial-gradient(900px 450px at 110% 120%, color-mix(in srgb, var(--c-accent) 13%, transparent), transparent 62%),
     var(--c-bg);
   transition: background var(--transition), color var(--transition);
 }
@@ -107,13 +107,20 @@ p {
 }
 
 .cv-section {
-  background: color-mix(in srgb, var(--c-surface) 88%, transparent);
+  background: color-mix(in srgb, var(--c-surface) 90%, transparent);
   border: 1px solid var(--c-border);
   border-radius: var(--radius-lg);
   padding: 2rem 2.2rem;
   margin-bottom: 1.2rem;
   box-shadow: var(--shadow-soft);
   animation: riseIn 0.55s ease both;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.cv-section:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: color-mix(in srgb, var(--c-accent-2) 25%, var(--c-border));
 }
 
 .section-label {

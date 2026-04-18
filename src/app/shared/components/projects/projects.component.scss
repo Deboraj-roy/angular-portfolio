@@ -1,3 +1,51 @@
+.project-toolbar {
+  margin-bottom: 1rem;
+  border: 1px solid color-mix(in srgb, var(--c-border) 75%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--c-surface-2) 68%, transparent);
+  padding: 0.8rem;
+}
+
+.toolbar-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-ink-3);
+}
+
+.filter-row {
+  margin-top: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.filter-chip {
+  border: 1px solid color-mix(in srgb, var(--c-border) 75%, transparent);
+  background: transparent;
+  color: var(--c-ink-2);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 999px;
+  padding: 0.38rem 0.62rem;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+
+.filter-chip:hover {
+  border-color: color-mix(in srgb, var(--c-accent-2) 42%, transparent);
+  color: var(--c-ink);
+}
+
+.filter-chip--active {
+  color: #fff;
+  border-color: color-mix(in srgb, var(--c-accent-2) 65%, transparent);
+  background: linear-gradient(130deg, color-mix(in srgb, var(--c-accent-2) 90%, #112f42), var(--c-accent-2));
+}
+
 .entry .org a {
   border-bottom: 1px dashed color-mix(in srgb, var(--c-accent-2) 50%, transparent);
 }
@@ -5,6 +53,14 @@
 .entry .org a:hover {
   text-decoration: none;
   border-bottom-color: var(--c-accent-2);
+}
+
+.empty-state {
+  border: 1px dashed color-mix(in srgb, var(--c-border) 80%, transparent);
+  border-radius: var(--radius-md);
+  padding: 0.8rem;
+  color: var(--c-ink-3);
+  font-size: 0.9rem;
 }
 
 @media (max-width: 900px) {

@@ -3,13 +3,13 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: ''
-  },
-  {
-    path: '',
     loadComponent: () =>
       import('./pages/home/home.component').then((m) => m.HomeComponent)
+  },
+  {
+    path: 'old_html',
+    pathMatch: 'full',
+    redirectTo: ''
   },
   {
     path: 'cv',

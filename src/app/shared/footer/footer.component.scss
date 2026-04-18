@@ -1,10 +1,10 @@
 .site-footer {
 	max-width: 1100px;
-	margin: 1rem auto 2rem;
+	margin: 0.2rem auto 2rem;
 	width: calc(100% - 2rem);
 	border: 1px solid var(--c-border);
 	border-radius: var(--radius-lg);
-	background: color-mix(in srgb, var(--c-surface) 86%, transparent);
+	background: color-mix(in srgb, var(--c-surface) 88%, transparent);
 	box-shadow: var(--shadow-soft);
 	padding: 1rem 1.2rem;
 	display: flex;
@@ -16,7 +16,7 @@
 	p {
 		font-size: 0.84rem;
 		color: var(--c-ink-2);
-		max-width: 64ch;
+		max-width: 66ch;
 	}
 }
 
@@ -30,6 +30,22 @@
 		font-size: 0.72rem;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
+		border: 1px solid transparent;
+		border-radius: 999px;
+		padding: 0.3rem 0.5rem;
 		text-decoration: none;
+		transition: border-color var(--transition), color var(--transition), background var(--transition);
+
+		&:hover {
+			text-decoration: none;
+			border-color: color-mix(in srgb, var(--c-accent-2) 35%, transparent);
+			background: color-mix(in srgb, var(--c-surface-2) 72%, transparent);
+		}
+	}
+}
+
+@media (max-width: 900px) {
+	.site-footer {
+		width: calc(100% - 1.4rem);
 	}
 }
