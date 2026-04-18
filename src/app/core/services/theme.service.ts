@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -6,11 +7,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class ThemeService {
   private readonly STORAGE_KEY = 'theme';
-  private readonly darkModeSubject = new BehaviorSubject<boolean>(this.getInitialTheme());
+  private readonly isBrowser: boolean;
+  private readonly darkModeSubject: BehaviorSubject<boolean>;
 
-  readonly darkMode$ = this.darkModeSubject.asObservable();
+  readonly darkMode$: Observable<boolean>;
 
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) platformId: object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+    this.darkModeSubject = new BehaviorSubject<boolean>(this.getInitialTheme());
+    this.darkMode$ = this.darkModeSubject.asObservable();
+    this.applyTheme(this.darkModeSubject.value);
     this.initializeThemeListener();
   }
 
@@ -18,6 +24,10 @@ export class ThemeService {
    * Get initial theme preference from localStorage or system preference
    */
   private getInitialTheme(): boolean {
+    if (!this.isBrowser) {
+      return false;
+    }
+
     const saved = localStorage.getItem(this.STORAGE_KEY);
     if (saved) {
       return saved === 'dark';
@@ -30,6 +40,10 @@ export class ThemeService {
    * Apply theme to document root
    */
   private applyTheme(isDark: boolean): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
     const htmlEl = document.documentElement;
     if (isDark) {
       htmlEl.setAttribute('data-theme', 'dark');
@@ -42,6 +56,10 @@ export class ThemeService {
    * Listen for system theme changes
    */
   private initializeThemeListener(): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     mediaQuery.addEventListener('change', (e) => {
       // Only update if user hasn't explicitly set a preference
@@ -65,7 +83,9 @@ export class ThemeService {
    */
   setTheme(isDark: boolean): void {
     this.darkModeSubject.next(isDark);
-    localStorage.setItem(this.STORAGE_KEY, isDark ? 'dark' : 'light');
+    if (this.isBrowser) {
+      localStorage.setItem(this.STORAGE_KEY, isDark ? 'dark' : 'light');
+    }
     this.applyTheme(isDark);
   }
 
