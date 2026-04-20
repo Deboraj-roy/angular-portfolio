@@ -140,6 +140,7 @@ export class PrintService {
     });
 
     // Education
+    body.appendChild(this.h('div', { class: 'p-page-break' }));
     body.appendChild(this.h('div', { class: 'p-section-title' }, 'Education'));
     cv.education.forEach(edu => {
       const entry = this.h('div', { class: 'p-edu' });
@@ -444,6 +445,9 @@ export class PrintService {
       }
 
       .p-mini-value { font-size: 12pt; line-height: 1.5; }
+
+      /* Page Break */
+      .p-page-break { page-break-before: always; }
     `;
   }
 }
