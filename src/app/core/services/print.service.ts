@@ -254,7 +254,7 @@ export class PrintService {
       html, body {
         width: 210mm;
         font-family: "EB Garamond", Georgia, "Times New Roman", serif;
-        font-size: 10pt;
+        font-size: 12pt;
         line-height: 1.45;
         color: #000;
         background: #fff;
@@ -271,7 +271,7 @@ export class PrintService {
       }
 
       .p-name {
-        font-size: 20pt;
+        font-size: 22pt;
         font-weight: bold;
         letter-spacing: .04em;
         text-transform: uppercase;
@@ -279,14 +279,14 @@ export class PrintService {
       }
 
       .p-title {
-        font-size: 9.5pt;
+        font-size: 12pt;
         color: #333;
         margin-top: 2pt;
         font-style: italic;
       }
 
       .p-contact {
-        font-size: 8.5pt;
+        font-size: 11pt;
         margin-top: 5pt;
         color: #222;
         font-family: Arial, Helvetica, sans-serif;
@@ -297,7 +297,7 @@ export class PrintService {
 
       /* Section Title */
       .p-section-title {
-        font-size: 10pt;
+        font-size: 12pt;
         font-weight: bold;
         text-transform: uppercase;
         letter-spacing: .08em;
@@ -310,7 +310,7 @@ export class PrintService {
 
       /* Summary */
       .p-summary {
-        font-size: 9.5pt;
+        font-size: 12pt;
         color: #111;
         line-height: 1.5;
         text-align: justify;
@@ -327,26 +327,26 @@ export class PrintService {
       }
 
       .p-entry-title {
-        font-size: 10pt;
+        font-size: 12pt;
         font-weight: bold;
       }
 
       .p-entry-date {
-        font-size: 9pt;
+        font-size: 11pt;
         font-family: Arial, Helvetica, sans-serif;
         color: #333;
         white-space: nowrap;
       }
 
       .p-entry-org {
-        font-size: 9.5pt;
+        font-size: 12pt;
         font-style: italic;
         color: #222;
         margin-top: 1pt;
       }
 
       .p-entry-stack {
-        font-size: 8.5pt;
+        font-size: 11pt;
         color: #444;
         font-family: Arial, Helvetica, sans-serif;
         margin-top: 1.5pt;
@@ -359,7 +359,7 @@ export class PrintService {
       }
 
       .p-entry li {
-        font-size: 9.5pt;
+        font-size: 12pt;
         margin-bottom: 2pt;
         line-height: 1.45;
         list-style-type: disc;
@@ -373,7 +373,7 @@ export class PrintService {
       }
 
       .p-skills-table td {
-        font-size: 9.5pt;
+        font-size: 12pt;
         vertical-align: top;
         padding: 1.5pt 4pt 1.5pt 0;
         line-height: 1.45;
@@ -395,23 +395,23 @@ export class PrintService {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        font-size: 9.5pt;
+        font-size: 12pt;
         margin-bottom: 3pt;
         gap: 8pt;
       }
 
       .p-cert-name { font-weight: bold; }
-      .p-cert-issuer { color: #444; font-style: italic; font-size: 9pt; }
+      .p-cert-issuer { color: #444; font-style: italic; font-size: 11pt; }
       .p-cert-date {
         font-family: Arial, Helvetica, sans-serif;
         color: #333;
-        font-size: 9pt;
+        font-size: 11pt;
         white-space: nowrap;
       }
 
       /* Section Note */
       .p-section-note {
-        font-size: 8.5pt;
+        font-size: 11pt;
         font-style: italic;
         color: #555;
         margin-bottom: 5pt;
@@ -420,7 +420,7 @@ export class PrintService {
 
       /* Project Links */
       .p-proj-link {
-        font-size: 8.5pt;
+        font-size: 11pt;
         font-family: Arial, Helvetica, sans-serif;
         color: #333;
         margin-top: 1pt;
@@ -435,7 +435,7 @@ export class PrintService {
       .p-two-col > div { flex: 1; }
 
       .p-mini-label {
-        font-size: 9pt;
+        font-size: 11pt;
         font-weight: bold;
         font-family: Arial, Helvetica, sans-serif;
         text-transform: uppercase;
@@ -443,7 +443,7 @@ export class PrintService {
         margin-bottom: 2pt;
       }
 
-      .p-mini-value { font-size: 9.5pt; line-height: 1.5; }
+      .p-mini-value { font-size: 12pt; line-height: 1.5; }
     `;
   }
 }
