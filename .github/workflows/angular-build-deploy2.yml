@@ -1,0 +1,64 @@
+name: Angular Build and Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run tests
+      run: npm test -- --watch=false --browsers=ChromeHeadless
+    
+    - name: Build production
+      run: npx ng build --configuration=production --base-href=/angular-portfolio/
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: dist
+        path: dist/
+        retention-days: 7
+
+  deploy:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: dist
+        path: dist/
+    
+    - name: Deploy to prod branch
+      run: |
+        git config --global user.name 'DEBORAJ ROY'
+        git config --global user.email 'deborajroy123@gmail.com'
+        git fetch origin prod
+        git checkout -b prod origin/prod || git checkout --orphan prod
+        git rm -rf .
+        cp -r dist/angular-portfolio/browser/* .
+        touch .nojekyll
+        echo "https://deboraj-roy.github.io/angular-portfolio/" > CNAME
+        git add .
+        git commit -m "Deploy to prod branch [skip ci]"
+        git push origin prod --force
