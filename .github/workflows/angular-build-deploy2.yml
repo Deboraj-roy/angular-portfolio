@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ main ]
 
+# Add permissions for the GITHUB_TOKEN
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -32,7 +38,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: dist
-        path: dist/
+        path: dist/angular-portfolio/browser/
         retention-days: 7
 
   deploy:
@@ -42,6 +48,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
     
     - name: Download build artifacts
       uses: actions/download-artifact@v4
@@ -53,12 +62,25 @@ jobs:
       run: |
         git config --global user.name 'DEBORAJ ROY'
         git config --global user.email 'deborajroy123@gmail.com'
-        git fetch origin prod
-        git checkout -b prod origin/prod || git checkout --orphan prod
-        git rm -rf .
-        cp -r dist/angular-portfolio/browser/* .
+        
+        # Create or update prod branch
+        git fetch origin prod || true
+        git checkout -b prod origin/prod 2>/dev/null || git checkout --orphan prod
+        
+        # Clean and prepare for new build
+        git rm -rf . 2>/dev/null || true
+        cp -r dist/* .
         touch .nojekyll
-        echo "https://deboraj-roy.github.io/angular-portfolio/" > CNAME
+        
+        # Add all files
         git add .
-        git commit -m "Deploy to prod branch [skip ci]"
-        git push origin prod --force
+        
+        # Commit and push
+        if git diff --staged --quiet; then
+          echo "No changes to deploy"
+        else
+          git commit -m "Deploy to prod branch - $(date +'%Y-%m-%d %H:%M:%S')"
+          git push origin prod --force
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
