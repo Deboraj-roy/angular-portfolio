@@ -190,6 +190,13 @@
     }
   ],
   "certifications": [
+    
+    {
+      "name": ".NET Core Microservices",
+      "issuer": "Udemy",
+      "dates": "Oct 2025",
+      "href": "https://www.udemy.com/certificate/UC-29f57052-58d3-4534-ab25-d45dfd4bd558/"
+    },
     {
       "name": "Full Stack ASP.NET Core MVC Web Development",
       "issuer": "DevSkill",
